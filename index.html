@@ -10,6 +10,10 @@
             var prenom = document.getElementById("prenom").value;
             var date = document.getElementById("date").value;
             
+            console.log("Nom sélectionné:", nom);
+            console.log("Prénom sélectionné:", prenom);
+            console.log("Date sélectionnée:", date);
+            
             // Simulation des données du planning (à remplacer par une vraie connexion aux données)
             var planning = {
                 "AHENKAN|Regina": { "2025-04-22": "MAT", "2025-04-23": "R" },
@@ -17,7 +21,10 @@
             };
             
             var cle = nom + "|" + prenom;
+            console.log("Clé de recherche dans planning:", cle);
+            
             var shift = planning[cle] && planning[cle][date] ? planning[cle][date] : "Aucun shift trouvé";
+            console.log("Shift trouvé:", shift);
             
             document.getElementById("resultat").innerText = "Shift: " + shift;
         }
