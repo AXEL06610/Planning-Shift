@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning des Shifts</title>
+    <script>
+        function afficherShift() {
+            var nom = document.getElementById("nom").value;
+            var prenom = document.getElementById("prenom").value;
+            var date = document.getElementById("date").value;
+            
+            // Simulation des données du planning (à remplacer par une vraie connexion aux données)
+            var planning = {
+                "AHENKAN|Regina": { "2025-04-22": "MAT", "2025-04-23": "R" },
+                "SOUARE|Assata": { "2025-04-22": "R", "2025-04-23": "P 9H" }
+            };
+            
+            var cle = nom + "|" + prenom;
+            var shift = planning[cle] && planning[cle][date] ? planning[cle][date] : "Aucun shift trouvé";
+            
+            document.getElementById("resultat").innerText = "Shift: " + shift;
+        }
+    </script>
+</head>
+<body>
+    <h2>Consultation du Planning</h2>
+    <label for="nom">Nom:</label>
+    <select id="nom">
+        <option value="AHENKAN">AHENKAN</option>
+        <option value="SOUARE">SOUARE</option>
+    </select>
+    
+    <label for="prenom">Prénom:</label>
+    <select id="prenom">
+        <option value="Regina">Regina</option>
+        <option value="Assata">Assata</option>
+    </select>
+    
+    <label for="date">Date:</label>
+    <input type="date" id="date">
+    
+    <button onclick="afficherShift()">Valider</button>
+    
+    <p id="resultat"></p>
+</body>
+</html>
